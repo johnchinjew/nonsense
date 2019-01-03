@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Nonsense</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <script src="/main.js"></script>
+        <style media="screen">
+            html {
+                font-family: sans-serif;
+            }
+            body {
+                padding: 0.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            button {
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                outline: 0;
+                border: 0;
+                background: #ddd;
+            }
+            p > span {
+                padding: 0 0.5rem;
+            }
+            hr {
+                margin: 1rem 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/javascript">
+            var app = Elm.Main.init({
+                node: document.querySelector("#app")
+            });
+        </script>
+    </body>
+</html>
