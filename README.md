@@ -1,2 +1,0 @@
-# nonsense
-Party game [WIP]
