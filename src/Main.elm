@@ -275,7 +275,7 @@ view model =
     { title = "Nonsense"
     , body =
         [ main_ []
-            [ audio [ id "alarm-audio", src "/alarm.mp3", controls False ] []
+            [ audio [ id "alarm-audio", src "/assets/alarm.mp3", controls False ] []
             , viewInstructions model
             , viewWord model
             , viewRule model

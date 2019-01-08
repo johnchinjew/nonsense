@@ -5709,8 +5709,8 @@ var author$project$Main$randomWord = function () {
 			0,
 			elm$core$Array$length(words) - 1));
 }();
-var author$project$Main$timeLimit = 2;
-var author$project$Main$winScore = 45;
+var author$project$Main$timeLimit = 45;
+var author$project$Main$winScore = 5;
 var elm$json$Json$Encode$bool = _Json_wrap;
 var elm$random$Random$Generate = elm$core$Basics$identity;
 var elm$random$Random$initialSeed = function (x) {
@@ -6244,7 +6244,7 @@ var author$project$Main$view = function (model) {
 						_List_fromArray(
 							[
 								elm$html$Html$Attributes$id('alarm-audio'),
-								elm$html$Html$Attributes$src('/alarm.mp3'),
+								elm$html$Html$Attributes$src('/assets/alarm.mp3'),
 								elm$html$Html$Attributes$controls(false)
 							]),
 						_List_Nil),
