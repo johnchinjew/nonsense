@@ -6244,7 +6244,7 @@ var author$project$Main$view = function (model) {
 						_List_fromArray(
 							[
 								elm$html$Html$Attributes$id('alarm-audio'),
-								elm$html$Html$Attributes$src('/assets/sounds/alarm.mp3'),
+								elm$html$Html$Attributes$src('/assets/alarm.mp3'),
 								elm$html$Html$Attributes$controls(false)
 							]),
 						_List_Nil),
