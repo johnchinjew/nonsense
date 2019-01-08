@@ -6240,7 +6240,10 @@ var author$project$Main$viewWord = function (model) {
 					])),
 				A2(
 				elm$html$Html$p,
-				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('word-text')
+					]),
 				_List_fromArray(
 					[
 						elm$html$Html$text(model.Y)

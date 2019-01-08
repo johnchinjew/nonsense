@@ -312,7 +312,7 @@ viewWord : Model -> Html Msg
 viewWord model =
     div [ class "word" ]
         [ h1 [] [ text "Word" ]
-        , p [] [ text model.word ]
+        , p [ class "word-text" ] [ text model.word ]
         , button [ onClick GetNewWord ] [ text "New word" ]
         ]
 
