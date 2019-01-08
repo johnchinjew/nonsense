@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <meta name="description" content="Description">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var app = Elm.Main.init();
+            app.ports.playSfx.subscribe(function (data) {
+                var alarmAudio = document.getElementById("alarm-audio");
+                alarmAudio.play();
+            });
+        </script>
+    </body>
+</html>
