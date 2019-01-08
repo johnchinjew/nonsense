@@ -23,7 +23,7 @@ port playSfx : E.Value -> Cmd msg
 
 winScore : Int
 winScore =
-    5
+    7
 
 
 timeLimit : Int
@@ -45,62 +45,69 @@ randomWord =
 randomRule : Random.Generator String
 randomRule =
     Random.weighted
-        -- Language challenges 13%
-        ( 13 / 26, "Use ONLY words that start with the letter T." )
-        [ ( 13 / 26, "Use ONLY words that start with the letter O." )
-        , ( 13 / 26, "Use ONLY words that start with the letter A." )
-        , ( 13 / 26, "Use ONLY words that start with the letter W." )
-        , ( 13 / 26, "Use ONLY words that start with the letter B." )
-        , ( 13 / 26, "Use ONLY words that start with the letter F." )
-        , ( 13 / 26, "Use ONLY words that start with the letter P." )
-        , ( 13 / 26, "Use ONLY words that start with the letter K." )
-        , ( 13 / 26, "Use ONLY words that start with the letter R." )
-        , ( 13 / 26, "Use ONLY words that start with the letter N." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter E." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter T." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter A." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter O." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter I." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter N." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter S." )
-        , ( 13 / 26, "Use ONLY words that do NOT contain the letter R." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -ACK." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -AT." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -ATE." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -EET." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -ICK." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -IP." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -OON." )
-        , ( 13 / 26, "Use ONLY words that rhyme with -UNK." )
+        -- Language 10% => 0.38%
+        ( 10 / 26, "Use ONLY words that start with the letter T." )
+        [ ( 10 / 26, "Use ONLY words that start with the letter O." )
+        , ( 10 / 26, "Use ONLY words that start with the letter A." )
+        , ( 10 / 26, "Use ONLY words that start with the letter W." )
+        , ( 10 / 26, "Use ONLY words that start with the letter B." )
+        , ( 10 / 26, "Use ONLY words that start with the letter F." )
+        , ( 10 / 26, "Use ONLY words that start with the letter P." )
+        , ( 10 / 26, "Use ONLY words that start with the letter K." )
+        , ( 10 / 26, "Use ONLY words that start with the letter R." )
+        , ( 10 / 26, "Use ONLY words that start with the letter N." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter E." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter T." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter A." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter O." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter I." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter N." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter S." )
+        , ( 10 / 26, "Use ONLY words that do NOT contain the letter R." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -ACK." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -AT." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -ATE." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -EET." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -ICK." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -IP." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -OON." )
+        , ( 10 / 26, "Use ONLY words that rhyme with -UNK." )
 
-        -- Word categories 32%
-        , ( 32 / 8, "Use ONLY COLOR words." )
-        , ( 32 / 8, "Use ONLY SIZE words (like tall or thin)." )
-        , ( 32 / 8, "Use ONLY SHAPE words (like triangular or lopsided)." )
-        , ( 32 / 8, "Use ONLY TEXTURE words." )
-        , ( 32 / 8, "Use ONLY ACTION words (like run or jump)." )
-        , ( 32 / 8, "Use ONLY SMELL words." )
-        , ( 32 / 8, "Use ONLY TASTE words." )
-        , ( 32 / 8, "Use ONLY EMOTION words." )
+        -- Senses 25% => 2.78%
+        , ( 25 / 9, "Use ONLY COLOR words." )
+        , ( 25 / 9, "Use ONLY SIZE words (like tall or slim)." )
+        , ( 25 / 9, "Use ONLY SHAPE words (like triangular or lopsided)." )
+        , ( 25 / 9, "Use ONLY TEXTURE words." )
+        , ( 25 / 9, "Use ONLY ACTION words (like jump)." )
+        , ( 25 / 9, "Use ONLY SMELL words." )
+        , ( 25 / 9, "Use ONLY TASTE words." )
+        , ( 25 / 9, "Use ONLY EMOTION words." )
+        , ( 25 / 9, "Use ONLY WEIGHT words (like heavy or 32kg)." )
 
-        -- Silly challenges 38%
-        , ( 38 / 9, "Can ONLY POINT at things." )
-        , ( 38 / 9, "Use ONLY HAND motions." )
-        , ( 38 / 9, "Can ONLY say WARMER or COOLER." )
-        , ( 38 / 9, "Can ONLY SING song LYRICS." )
-        , ( 38 / 9, "Use ONLY SOUND EFFECTS." )
-        , ( 38 / 9, "Can ONLY DRAW in the AIR." )
-        , ( 38 / 9, "Can ONLY say WARMER or COOLER." )
-        , ( 38 / 9, "Use ONLY your EYES to POINT at things." )
-        , ( 38 / 9, "Freestyle a RAP that RHYMES." )
+        -- Silly 35% => 3.89%
+        , ( 35 / 9, "Can ONLY POINT at things." )
+        , ( 35 / 9, "Use ONLY HAND motions." )
+        , ( 35 / 9, "Can ONLY SING song LYRICS." )
+        , ( 35 / 9, "Use ONLY SOUND EFFECTS." )
+        , ( 35 / 9, "Can ONLY DRAW in the AIR." )
+        , ( 35 / 9, "Use ONLY your EYES to POINT at things." )
+        , ( 35 / 9, "Freestyle a RAP that RHYMES." )
+        , ( 35 / 9, "Can ONLY WHALESPEAK (each word must take 5 seconds)." )
+        , ( 35 / 9, "Must KEEP lips CLOSED while speaking." )
 
-        -- Other 9%
-        , ( 9 / 3, "Use ONLY types of WEATHER (like rainy)." )
-        , ( 9 / 3, "Use ONLY NUMBERS (like 17 or 3.14)." )
-        , ( 9 / 3, "Use ONLY PLACES or LOCATIONS (like Hawaii)" )
+        -- Participation 19% => 3.8%
+        , ( 19 / 5, "Use ANY word, but just ONE." )
+        , ( 19 / 5, "Can ONLY say YES or NO." )
+        , ( 19 / 5, "Can ONLY say WARMER or COOLER." )
+        , ( 19 / 5, "Say ANYTHING, but your team gets ONLY ONE guess." )
+        , ( 19 / 5, "Can ONLY ask your team QUESTIONS." )
 
-        -- Super 8%
-        , ( 8 / 1, "Use ANY word, but just ONE." )
+        -- Knowledge 11% => 2.2%
+        , ( 11 / 5, "Use ONLY types of WEATHER (like rainy)." )
+        , ( 11 / 5, "Use ONLY NUMBERS (like 17 or 3.14)." )
+        , ( 11 / 5, "Use ONLY PLACES or LOCATIONS (like Hawaii)" )
+        , ( 11 / 5, "Use ONLY \"A is to B as C is to ___\" statements." )
+        , ( 11 / 5, "Use ONLY \"___ is a type of ___\" statements." )
         ]
 
 
@@ -128,19 +135,17 @@ type alias History =
     , three : String
     , four : String
     , five : String
-    , six : String
-    , seven : String
     }
 
 
 pushHistory : String -> History -> History
 pushHistory newRule h =
-    History newRule h.one h.two h.three h.four h.five h.six
+    History newRule h.one h.two h.three h.four
 
 
 historyIncludes : String -> History -> Bool
 historyIncludes rule h =
-    rule == h.one || rule == h.two || rule == h.three || rule == h.four || rule == h.five || rule == h.six || rule == h.seven
+    rule == h.one || rule == h.two || rule == h.three || rule == h.four || rule == h.five
 
 
 
@@ -164,7 +169,7 @@ type alias Model =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( Model False "???" "???" 0 0 0 (History "" "" "" "" "" "" ""), Cmd.none )
+    ( Model False "???" "???" 0 0 0 (History "" "" "" "" ""), Cmd.none )
 
 
 
@@ -347,13 +352,13 @@ viewScore model =
             h1 [] [ text "Score" ]
         , p []
             [ span [ class "score-label" ] [ text "Team 1: " ]
-            , button [ onClick DecrementScore1 ] [ text "-" ]
+            , button [ onClick DecrementScore1 ] [ text "–" ]
             , span [ class "score-value" ] [ text <| " " ++ String.fromInt model.score1 ++ " " ]
             , button [ onClick IncrementScore1 ] [ text "+" ]
             ]
         , p []
             [ span [ class "score-label" ] [ text "Team 2: " ]
-            , button [ onClick DecrementScore2 ] [ text "-" ]
+            , button [ onClick DecrementScore2 ] [ text "–" ]
             , span [ class "score-value" ] [ text <| " " ++ String.fromInt model.score2 ++ " " ]
             , button [ onClick IncrementScore2 ] [ text "+" ]
             ]

@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.U.C === region.ab.C)
+	if (region.S.C === region._.C)
 	{
-		return 'on line ' + region.U.C;
+		return 'on line ' + region.S.C;
 	}
-	return 'on lines ' + region.U.C + ' through ' + region.ab.C;
+	return 'on lines ' + region.S.C + ' through ' + region._.C;
 }
 
 
@@ -1857,9 +1857,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aF,
-		impl.aN,
+		impl.aD,
 		impl.aL,
+		impl.aJ,
 		function() { return function() {} }
 	);
 });
@@ -2743,8 +2743,8 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
 		k: func(record.k),
-		V: record.V,
-		R: record.R
+		T: record.T,
+		Q: record.Q
 	}
 });
 
@@ -3013,10 +3013,10 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 
 		var value = result.a;
 		var message = !tag ? value : tag < 3 ? value.a : value.k;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.V;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.T;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.R) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.Q) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3966,11 +3966,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aF,
-		impl.aN,
+		impl.aD,
 		impl.aL,
+		impl.aJ,
 		function(sendToApp, initialModel) {
-			var view = impl.aP;
+			var view = impl.aN;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -4002,12 +4002,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.aF,
-		impl.aN,
+		impl.aD,
 		impl.aL,
+		impl.aJ,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.D && impl.D(sendToApp)
-			var view = impl.aP;
+			var view = impl.aN;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4015,12 +4015,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.ay);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aw);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.aM) && (_VirtualDom_doc.title = title = doc.aM);
+				(title !== doc.aK) && (_VirtualDom_doc.title = title = doc.aK);
 			});
 		}
 	);
@@ -4076,8 +4076,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.aH;
-	var onUrlRequest = impl.aI;
+	var onUrlChange = impl.aF;
+	var onUrlRequest = impl.aG;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4097,9 +4097,9 @@ function _Browser_application(impl)
 					var next = elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.an === next.an
-							&& curr.ae === next.ae
-							&& curr.ak.a === next.ak.a
+							&& curr.am === next.am
+							&& curr.ad === next.ad
+							&& curr.aj.a === next.aj.a
 						)
 							? elm$browser$Browser$Internal(next)
 							: elm$browser$Browser$External(href)
@@ -4107,13 +4107,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		aF: function(flags)
+		aD: function(flags)
 		{
-			return A3(impl.aF, flags, _Browser_getUrl(), key);
+			return A3(impl.aD, flags, _Browser_getUrl(), key);
 		},
-		aP: impl.aP,
 		aN: impl.aN,
-		aL: impl.aL
+		aL: impl.aL,
+		aJ: impl.aJ
 	});
 }
 
@@ -4179,17 +4179,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { aD: 'hidden', az: 'visibilitychange' }
+		? { aB: 'hidden', ax: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { aD: 'mozHidden', az: 'mozvisibilitychange' }
+		? { aB: 'mozHidden', ax: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { aD: 'msHidden', az: 'msvisibilitychange' }
+		? { aB: 'msHidden', ax: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { aD: 'webkitHidden', az: 'webkitvisibilitychange' }
-		: { aD: 'hidden', az: 'visibilitychange' };
+		? { aB: 'webkitHidden', ax: 'webkitvisibilitychange' }
+		: { aB: 'hidden', ax: 'visibilitychange' };
 }
 
 
@@ -4270,8 +4270,8 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		ar: _Browser_getScene(),
-		av: {
+		aq: _Browser_getScene(),
+		at: {
 			K: _Browser_window.pageXOffset,
 			L: _Browser_window.pageYOffset,
 			A: _Browser_doc.documentElement.clientWidth,
@@ -4309,11 +4309,11 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			ar: {
+			aq: {
 				A: node.scrollWidth,
 				u: node.scrollHeight
 			},
-			av: {
+			at: {
 				K: node.scrollLeft,
 				L: node.scrollTop,
 				A: node.clientWidth,
@@ -4347,14 +4347,14 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			ar: _Browser_getScene(),
-			av: {
+			aq: _Browser_getScene(),
+			at: {
 				K: x,
 				L: y,
 				A: _Browser_doc.documentElement.clientWidth,
 				u: _Browser_doc.documentElement.clientHeight
 			},
-			aA: {
+			ay: {
 				K: x + rect.left,
 				L: y + rect.top,
 				A: rect.width,
@@ -4393,13 +4393,13 @@ function _Browser_load(url)
 		}
 	}));
 }
-var author$project$Main$History = F7(
-	function (one, two, three, four, five, six, seven) {
-		return {M: five, N: four, Q: one, as: seven, T: six, W: three, X: two};
+var author$project$Main$History = F5(
+	function (one, two, three, four, five) {
+		return {ab: five, M: four, P: one, U: three, V: two};
 	});
 var author$project$Main$Model = F7(
 	function (showInstructions, word, rule, timeRemaining, score1, score2, ruleHistory) {
-		return {S: rule, I: ruleHistory, m: score1, n: score2, J: showInstructions, y: timeRemaining, Y: word};
+		return {R: rule, I: ruleHistory, m: score1, n: score2, J: showInstructions, y: timeRemaining, W: word};
 	});
 var elm$core$Basics$False = 1;
 var elm$core$Basics$True = 0;
@@ -4888,7 +4888,7 @@ var author$project$Main$init = function (_n0) {
 			0,
 			0,
 			0,
-			A7(author$project$Main$History, '', '', '', '', '', '', '')),
+			A5(author$project$Main$History, '', '', '', '', '')),
 		elm$core$Platform$Cmd$none);
 };
 var author$project$Main$NewTime = function (a) {
@@ -4903,7 +4903,7 @@ var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
 var elm$core$Task$succeed = _Scheduler_succeed;
 var elm$time$Time$State = F2(
 	function (taggers, processes) {
-		return {am: processes, au: taggers};
+		return {al: processes, as: taggers};
 	});
 var elm$time$Time$init = elm$core$Task$succeed(
 	A2(elm$time$Time$State, elm$core$Dict$empty, elm$core$Dict$empty));
@@ -5194,7 +5194,7 @@ var elm$time$Time$spawnHelp = F3(
 	});
 var elm$time$Time$onEffects = F3(
 	function (router, subs, _n0) {
-		var processes = _n0.am;
+		var processes = _n0.al;
 		var rightStep = F3(
 			function (_n6, id, _n7) {
 				var spawns = _n7.a;
@@ -5358,7 +5358,7 @@ var elm$time$Time$millisToPosix = elm$core$Basics$identity;
 var elm$time$Time$now = _Time_now(elm$time$Time$millisToPosix);
 var elm$time$Time$onSelfMsg = F3(
 	function (router, interval, state) {
-		var _n0 = A2(elm$core$Dict$get, interval, state.au);
+		var _n0 = A2(elm$core$Dict$get, interval, state.as);
 		if (_n0.$ === 1) {
 			return elm$core$Task$succeed(state);
 		} else {
@@ -5415,7 +5415,7 @@ var author$project$Main$NewWord = function (a) {
 };
 var author$project$Main$historyIncludes = F2(
 	function (rule, h) {
-		return _Utils_eq(rule, h.Q) || (_Utils_eq(rule, h.X) || (_Utils_eq(rule, h.W) || (_Utils_eq(rule, h.N) || (_Utils_eq(rule, h.M) || (_Utils_eq(rule, h.T) || _Utils_eq(rule, h.as))))));
+		return _Utils_eq(rule, h.P) || (_Utils_eq(rule, h.V) || (_Utils_eq(rule, h.U) || (_Utils_eq(rule, h.M) || _Utils_eq(rule, h.ab))));
 	});
 var author$project$Main$normalizeScore = F3(
 	function (minScore, maxScore, score) {
@@ -5424,7 +5424,7 @@ var author$project$Main$normalizeScore = F3(
 var author$project$Main$playSfx = _Platform_outgoingPort('playSfx', elm$core$Basics$identity);
 var author$project$Main$pushHistory = F2(
 	function (newRule, h) {
-		return A7(author$project$Main$History, newRule, h.Q, h.X, h.W, h.N, h.M, h.T);
+		return A5(author$project$Main$History, newRule, h.P, h.V, h.U, h.M);
 	});
 var elm$core$Basics$negate = function (n) {
 	return -n;
@@ -5523,55 +5523,62 @@ var elm$random$Random$weighted = F2(
 	});
 var author$project$Main$randomRule = A2(
 	elm$random$Random$weighted,
-	_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter T.'),
+	_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter T.'),
 	_List_fromArray(
 		[
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter O.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter A.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter W.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter B.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter F.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter P.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter K.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter R.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that start with the letter N.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter E.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter T.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter A.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter O.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter I.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter N.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter S.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that do NOT contain the letter R.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -ACK.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -AT.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -ATE.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -EET.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -ICK.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -IP.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -OON.'),
-			_Utils_Tuple2(13 / 26, 'Use ONLY words that rhyme with -UNK.'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY COLOR words.'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY SIZE words (like tall or thin).'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY SHAPE words (like triangular or lopsided).'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY TEXTURE words.'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY ACTION words (like run or jump).'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY SMELL words.'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY TASTE words.'),
-			_Utils_Tuple2(32 / 8, 'Use ONLY EMOTION words.'),
-			_Utils_Tuple2(38 / 9, 'Can ONLY POINT at things.'),
-			_Utils_Tuple2(38 / 9, 'Use ONLY HAND motions.'),
-			_Utils_Tuple2(38 / 9, 'Can ONLY say WARMER or COOLER.'),
-			_Utils_Tuple2(38 / 9, 'Can ONLY SING song LYRICS.'),
-			_Utils_Tuple2(38 / 9, 'Use ONLY SOUND EFFECTS.'),
-			_Utils_Tuple2(38 / 9, 'Can ONLY DRAW in the AIR.'),
-			_Utils_Tuple2(38 / 9, 'Can ONLY say WARMER or COOLER.'),
-			_Utils_Tuple2(38 / 9, 'Use ONLY your EYES to POINT at things.'),
-			_Utils_Tuple2(38 / 9, 'Freestyle a RAP that RHYMES.'),
-			_Utils_Tuple2(9 / 3, 'Use ONLY types of WEATHER (like rainy).'),
-			_Utils_Tuple2(9 / 3, 'Use ONLY NUMBERS (like 17 or 3.14).'),
-			_Utils_Tuple2(9 / 3, 'Use ONLY PLACES or LOCATIONS (like Hawaii)'),
-			_Utils_Tuple2(8 / 1, 'Use ANY word, but just ONE.')
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter O.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter A.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter W.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter B.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter F.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter P.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter K.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter R.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that start with the letter N.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter E.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter T.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter A.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter O.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter I.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter N.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter S.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that do NOT contain the letter R.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -ACK.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -AT.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -ATE.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -EET.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -ICK.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -IP.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -OON.'),
+			_Utils_Tuple2(10 / 26, 'Use ONLY words that rhyme with -UNK.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY COLOR words.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY SIZE words (like tall or slim).'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY SHAPE words (like triangular or lopsided).'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY TEXTURE words.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY ACTION words (like jump).'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY SMELL words.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY TASTE words.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY EMOTION words.'),
+			_Utils_Tuple2(25 / 9, 'Use ONLY WEIGHT words (like heavy or 32kg).'),
+			_Utils_Tuple2(35 / 9, 'Can ONLY POINT at things.'),
+			_Utils_Tuple2(35 / 9, 'Use ONLY HAND motions.'),
+			_Utils_Tuple2(35 / 9, 'Can ONLY SING song LYRICS.'),
+			_Utils_Tuple2(35 / 9, 'Use ONLY SOUND EFFECTS.'),
+			_Utils_Tuple2(35 / 9, 'Can ONLY DRAW in the AIR.'),
+			_Utils_Tuple2(35 / 9, 'Use ONLY your EYES to POINT at things.'),
+			_Utils_Tuple2(35 / 9, 'Freestyle a RAP that RHYMES.'),
+			_Utils_Tuple2(35 / 9, 'Can ONLY WHALESPEAK (each word must take 5 seconds).'),
+			_Utils_Tuple2(35 / 9, 'Must KEEP lips CLOSED while speaking.'),
+			_Utils_Tuple2(19 / 5, 'Use ANY word, but just ONE.'),
+			_Utils_Tuple2(19 / 5, 'Can ONLY say YES or NO.'),
+			_Utils_Tuple2(19 / 5, 'Can ONLY say WARMER or COOLER.'),
+			_Utils_Tuple2(19 / 5, 'Say ANYTHING, but your team gets ONLY ONE guess.'),
+			_Utils_Tuple2(19 / 5, 'Can ONLY ask your team QUESTIONS.'),
+			_Utils_Tuple2(11 / 5, 'Use ONLY types of WEATHER (like rainy).'),
+			_Utils_Tuple2(11 / 5, 'Use ONLY NUMBERS (like 17 or 3.14).'),
+			_Utils_Tuple2(11 / 5, 'Use ONLY PLACES or LOCATIONS (like Hawaii)'),
+			_Utils_Tuple2(11 / 5, 'Use ONLY \"A is to B as C is to ___\" statements.'),
+			_Utils_Tuple2(11 / 5, 'Use ONLY \"___ is a type of ___\" statements.')
 		]));
 var elm$core$Array$fromListHelp = F3(
 	function (list, nodeList, nodeListSize) {
@@ -5710,7 +5717,7 @@ var author$project$Main$randomWord = function () {
 			elm$core$Array$length(words) - 1));
 }();
 var author$project$Main$timeLimit = 45;
-var author$project$Main$winScore = 5;
+var author$project$Main$winScore = 7;
 var elm$json$Json$Encode$bool = _Json_wrap;
 var elm$random$Random$Generate = elm$core$Basics$identity;
 var elm$random$Random$initialSeed = function (x) {
@@ -5785,7 +5792,7 @@ var author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{Y: newWord}),
+						{W: newWord}),
 					elm$core$Platform$Cmd$none);
 			case 2:
 				return _Utils_Tuple2(
@@ -5801,7 +5808,7 @@ var author$project$Main$update = F2(
 					_Utils_update(
 						model,
 						{
-							S: newRule,
+							R: newRule,
 							I: A2(author$project$Main$pushHistory, newRule, model.I)
 						}),
 					elm$core$Platform$Cmd$none);
@@ -6032,7 +6039,7 @@ var author$project$Main$viewRule = function (model) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text(model.S)
+						elm$html$Html$text(model.R)
 					])),
 				A2(
 				elm$html$Html$button,
@@ -6138,7 +6145,7 @@ var author$project$Main$viewScore = function (model) {
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('-')
+								elm$html$Html$text('–')
 							])),
 						A2(
 						elm$html$Html$span,
@@ -6185,7 +6192,7 @@ var author$project$Main$viewScore = function (model) {
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('-')
+								elm$html$Html$text('–')
 							])),
 						A2(
 						elm$html$Html$span,
@@ -6246,7 +6253,7 @@ var author$project$Main$viewWord = function (model) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text(model.Y)
+						elm$html$Html$text(model.W)
 					])),
 				A2(
 				elm$html$Html$button,
@@ -6279,7 +6286,7 @@ var elm$html$Html$Attributes$src = function (url) {
 };
 var author$project$Main$view = function (model) {
 	return {
-		ay: _List_fromArray(
+		aw: _List_fromArray(
 			[
 				A2(
 				elm$html$Html$main_,
@@ -6304,7 +6311,7 @@ var author$project$Main$view = function (model) {
 						author$project$Main$viewScore(model)
 					]))
 			]),
-		aM: 'Nonsense'
+		aK: 'Nonsense'
 	};
 };
 var elm$browser$Browser$External = function (a) {
@@ -6398,7 +6405,7 @@ var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {ad: fragment, ae: host, ai: path, ak: port_, an: protocol, ao: query};
+		return {ac: fragment, ad: host, ah: path, aj: port_, am: protocol, an: query};
 	});
 var elm$url$Url$chompBeforePath = F5(
 	function (protocol, path, params, frag, str) {
@@ -6504,6 +6511,6 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$document = _Browser_document;
 var author$project$Main$main = elm$browser$Browser$document(
-	{aF: author$project$Main$init, aL: author$project$Main$subscriptions, aN: author$project$Main$update, aP: author$project$Main$view});
+	{aD: author$project$Main$init, aJ: author$project$Main$subscriptions, aL: author$project$Main$update, aN: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	elm$json$Json$Decode$succeed(0))(0)}});}(this));
