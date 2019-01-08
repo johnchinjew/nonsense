@@ -75,14 +75,14 @@ randomRule =
 
         -- Senses 25% => 2.78%
         , ( 25 / 9, "Use ONLY COLOR words." )
-        , ( 25 / 9, "Use ONLY SIZE words (like tall or slim)." )
-        , ( 25 / 9, "Use ONLY SHAPE words (like triangular or lopsided)." )
+        , ( 25 / 9, "Use ONLY SIZE words (like \"tall\" or \"slim\")." )
+        , ( 25 / 9, "Use ONLY SHAPE words (like \"triangular\" or \"lopsided\")." )
         , ( 25 / 9, "Use ONLY TEXTURE words." )
-        , ( 25 / 9, "Use ONLY ACTION words (like jump)." )
+        , ( 25 / 9, "Use ONLY ACTION words (like \"jump\")." )
         , ( 25 / 9, "Use ONLY SMELL words." )
         , ( 25 / 9, "Use ONLY TASTE words." )
         , ( 25 / 9, "Use ONLY EMOTION words." )
-        , ( 25 / 9, "Use ONLY WEIGHT words (like heavy or 32kg)." )
+        , ( 25 / 9, "Use ONLY WEIGHT words (like \"heavy\" or 32kg)." )
 
         -- Silly 35% => 3.89%
         , ( 35 / 9, "Can ONLY POINT at things." )
@@ -103,7 +103,7 @@ randomRule =
         , ( 19 / 5, "Can ONLY ask your team QUESTIONS." )
 
         -- Knowledge 11% => 2.2%
-        , ( 11 / 5, "Use ONLY types of WEATHER (like rainy)." )
+        , ( 11 / 5, "Use ONLY types of WEATHER (like \"rainy\")." )
         , ( 11 / 5, "Use ONLY NUMBERS (like 17 or 3.14)." )
         , ( 11 / 5, "Use ONLY PLACES or LOCATIONS (like Hawaii)" )
         , ( 11 / 5, "Use ONLY \"A is to B as C is to ___\" statements." )
@@ -300,12 +300,17 @@ viewInstructions model =
         div [ class "instructions" ]
             [ button [ onClick HideInstructions ] [ text "Hide" ]
             , ul []
-                [ li [] [ text "With at least 4 players, make 2 teams and pick 1 rep from each team." ]
-                , li [] [ text "Together, reps draw a single shared word. Teams will compete to guess this word." ]
-                , li [] [ text <| "Now each side takes turns, " ++ String.fromInt timeLimit ++ " seconds per side:" ]
-                , li [] [ text "The first team to guess the word gets 1 point." ]
-                , li [] [ text "After the word is guessed, each team picks 1 new rep. " ]
-                , li [] [ text <| "The first team to " ++ String.fromInt winScore ++ " 7 points wins." ]
+                [ li [] [ text "Game requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team." ]
+                , li [] [ text "Together, clue givers draw a single shared word (tap the \"New word\" button) unknown to their teams. Each round teams will compete to guess the word. Clue givers may NEVER explicitly communicate the word. Also, clue givers may skip words until they agree on one." ]
+                , li [] [ text "Now, clue givers and their teams will take 45 second turns trying to figure out the word." ]
+                , li [] [ text "At the start of each turn, the current clue giver draws a new clue-giving rule (tap the \"New rule\" button) and announces the rule. Clue givers may skip 1 rule per turn." ]
+                , li [] [ text "This clue giver must give clues to their team obeying the rule and only this clue giver's team may try to guess the word. A team can make unlimited guesses within the 45 second turn. Also, all clues given should be perceivable to both teams." ]
+                , li [] [ text "If a rule is ever broken or the word communicated explicitly, the team at fault must forfeit 1 point to the other team." ]
+                , li [] [ text "After 45 seconds, the turn ends and it is the other clue giver and team's turn to give clues and guess the word. Remember, the other clue giver should begin their turn by drawing a new clue-giving rule." ]
+                , li [] [ text "The first team to guess the word wins 1 point and ends the round." ]
+                , li [] [ text "However, if neither team can guess the word after 3 clues are given by each clue giver, the game enters Blitz Mode: Both clue givers may communicate without restriction (though they still CANNOT communicate the word explicitly) and both teams may guess at any time without restriction. The first team to guess the word wins the point." ]
+                , li [] [ text "After a round ends, each team must pick 1 new clue giver and the losing team gets to start the next round. The new clue givers must pick a new word to guess for the next round." ]
+                , li [] [ text "The first team to 7 points wins." ]
                 ]
             ]
 

@@ -71,6 +71,7 @@ body {
 
 .instructions ul {
     line-height: 1.5;
+    padding-left: 1rem;
 }
 
 
@@ -92,7 +93,7 @@ body {
     font-size: 1.5rem;
     margin-top: 0.75rem;
     line-height: 1.4;
-    height: 4rem;
+    min-height: 4rem;
 }
 
 
