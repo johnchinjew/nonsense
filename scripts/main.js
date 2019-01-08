@@ -6097,7 +6097,7 @@ var author$project$Main$viewRule = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						elm$html$Html$text('Rule • Time\'s up!')
+						elm$html$Html$text('Rule')
 					])),
 				A2(
 				elm$html$Html$p,

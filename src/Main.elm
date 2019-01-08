@@ -338,7 +338,7 @@ viewRule model =
 
     else
         div [ class "rule" ]
-            [ h1 [] [ text <| "Rule • Time's up!" ]
+            [ h1 [] [ text "Rule" ]
             , p [ class "rule-text" ] [ text "???" ]
             , button [ onClick GetNewRule ] [ text "New rule" ]
             ]

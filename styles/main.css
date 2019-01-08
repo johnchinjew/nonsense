@@ -40,24 +40,25 @@ body {
 .app button {
     font-family: inherit;
     font-size: 0.75rem;
-    background: #e7e7e7;
-    border: 0;
+    background: #fff;
+    border: 1px solid #ccc;
     border-radius: 999px;
     padding: 0.5rem 1.5rem;
     outline: 0;
 }
 
 .app button:focus {
-    background: #ccc;
+    background: #f7f7f7;
 }
 
 .app button:active {
-    background: #f92;
+    background: #fd7;
+    border: 1px solid #fd7;
 }
 
 .app div {
     padding: 0.75rem 0.625rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
 }
 
 .app div:last-of-type {
@@ -93,7 +94,7 @@ body {
     font-size: 1.5rem;
     margin-top: 0.75rem;
     line-height: 1.4;
-    min-height: 4rem;
+    min-height: 4.25rem;
 }
 
 
