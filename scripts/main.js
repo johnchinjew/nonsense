@@ -5970,7 +5970,7 @@ var author$project$Main$viewInstructions = function (model) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('Game requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.')
+								elm$html$Html$text('Nonsense requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.')
 							])),
 						A2(
 						elm$html$Html$li,

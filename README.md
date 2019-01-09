@@ -1,6 +1,6 @@
 # Nonsense
 
-> A nothing but nonsense party game.
+> A game of concentrated whimsicality and utter nonsense.
 
 Play it here: [nonsense.johnchinjew.com](https://nonsense.johnchinjew.com)
 
