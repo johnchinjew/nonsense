@@ -1,4 +1,4 @@
-# Nonsense • Party Game
+# Nonsense Party Game
 
 > A game of concentrated whimsical nonsense.
 
@@ -16,3 +16,7 @@
 - However, if neither team can guess the word after 3 clues are given by each clue giver, the game enters Blitz Mode: Both clue givers may communicate without restriction (though they still CANNOT communicate the word explicitly) and both teams may guess at any time without restriction. The first team to guess the word wins the point.
 - After a round ends, each team must pick 1 new clue giver and the losing team gets to start the next round. The new clue givers must pick a new word to guess for the next round.
 - The first team to 7 points wins.
+
+## Copyright
+
+Copyright 2019 to Present belongs to John Chin-Jew for the Nonsense Party Game.
