@@ -5922,6 +5922,7 @@ var author$project$Main$viewCopyright = function (model) {
 var author$project$Main$HideInstructions = {$: 11};
 var author$project$Main$ShowInstructions = {$: 10};
 var elm$html$Html$button = _VirtualDom_node('button');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$li = _VirtualDom_node('li');
 var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
@@ -5961,6 +5962,13 @@ var author$project$Main$viewInstructions = function (model) {
 						elm$html$Html$text('Hide')
 					])),
 				A2(
+				elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('Setup')
+					])),
+				A2(
 				elm$html$Html$ul,
 				_List_Nil,
 				_List_fromArray(
@@ -5970,77 +5978,178 @@ var author$project$Main$viewInstructions = function (model) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('Nonsense requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.')
+								elm$html$Html$text('Nonsense requires 4 or more players and 1 phone.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('Together, clue givers draw a single shared word (tap the \"New word\" button) unknown to their teams. Each round teams will compete to guess the word. Clue givers may NEVER explicitly communicate the word. Also, clue givers may skip words until they agree on one.')
+								elm$html$Html$text('Form 2 teams.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('Now, clue givers and their teams will take 45 second turns trying to figure out the word.')
+								elm$html$Html$text('The game consists of 7 rounds each worth 1 point, the first team to 7 points wins.')
+							]))
+					])),
+				A2(
+				elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('Gameplay')
+					])),
+				A2(
+				elm$html$Html$ul,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$li,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text('At the beginning of each round pick 1 clue giver from each team.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('At the start of each turn, the current clue giver draws a new clue-giving rule (tap the \"New rule\" button) and announces the rule. Clue givers may skip 1 rule per turn.')
+								elm$html$Html$text('Next, the clue givers must agree on a shared secret Word (tap the \"New word\" button to get a Word).')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('This clue giver must give clues to their team obeying the rule and only this clue giver\'s team may try to guess the word. A team can make unlimited guesses within the 45 second turn. Also, all clues given should be perceivable to both teams.')
+								elm$html$Html$text('Now, each team takes 45 second turns, back and forth:')
+							])),
+						A2(
+						elm$html$Html$ul,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('The current team\'s clue giver draws a new Rule (tap the \"New rule\" button) and announces the Rule to everyone.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('Then, they give clues about the Word to everyone and MUST obey the Rule.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('ONLY the CURRENT team can try to guess the Word. There is no limit on guesses.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('Clue givers CANNOT tell their team the Word directly, but can confirm or deny a guess.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('If the current team cannot guess the Word in time, it becomes the other team\'s turn.')
+									]))
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('If a rule is ever broken or the word communicated explicitly, the team at fault must forfeit 1 point to the other team.')
+								elm$html$Html$text('The first team to guess the Word wins 1 point and ends the round.')
+							]))
+					])),
+				A2(
+				elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('Notes')
+					])),
+				A2(
+				elm$html$Html$ul,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$li,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text('The losing team should be allowed to start new rounds.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('After 45 seconds, the turn ends and it is the other clue giver and team\'s turn to give clues and guess the word. Remember, the other clue giver should begin their turn by drawing a new clue-giving rule.')
+								elm$html$Html$text('Clue givers may skip 1 Rule per round.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('The first team to guess the word wins 1 point and ends the round.')
+								elm$html$Html$text('If a Rule is ever broken or the Word is spoken directly, the team at fault must forfeit 1 point to the other team.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('However, if neither team can guess the word after 3 clues are given by each clue giver, the game enters Blitz Mode: Both clue givers may communicate without restriction (though they still CANNOT communicate the word explicitly) and both teams may guess at any time without restriction. The first team to guess the word wins the point.')
+								elm$html$Html$text('Guesses that are proposed outside of a turn\'s time limit do not count.')
 							])),
 						A2(
 						elm$html$Html$li,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('After a round ends, each team must pick 1 new clue giver and the losing team gets to start the next round. The new clue givers must pick a new word to guess for the next round.')
+								elm$html$Html$text('If both teams are stumped by a Word, upon a majority vote the game can enter Blitz Mode, where:')
 							])),
 						A2(
-						elm$html$Html$li,
+						elm$html$Html$ul,
 						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('The first team to 7 points wins.')
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('Both clue givers can say anything at any time, except the Word itself.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('Both teams may guess at any time.')
+									])),
+								A2(
+								elm$html$Html$li,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text('The first team to guess the Word wins the point.')
+									]))
 							]))
 					]))
 			])) : A2(
@@ -6064,7 +6173,6 @@ var author$project$Main$viewInstructions = function (model) {
 			]));
 };
 var author$project$Main$GetNewRule = {$: 2};
-var elm$html$Html$h1 = _VirtualDom_node('h1');
 var author$project$Main$viewRule = function (model) {
 	return (model.y > 0) ? A2(
 		elm$html$Html$div,
