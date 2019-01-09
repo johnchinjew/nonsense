@@ -1,8 +1,8 @@
-# Nonsense
+# Nonsense • Party Game
 
-> A game of concentrated whimsicality and utter nonsense.
+> A game of concentrated whimsical nonsense.
 
-Play it here: [nonsense.johnchinjew.com](https://nonsense.johnchinjew.com)
+**Play it here: [nonsense.johnchinjew.com](https://nonsense.johnchinjew.com)**
 
 ## How to play?
 - Nonsense requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.
