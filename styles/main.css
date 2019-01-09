@@ -29,6 +29,7 @@ body {
         -ms-user-select: none;
             user-select: none;
     font-size: 0.875rem;
+    opacity: 0.95;
 }
 
 .app h1 {
@@ -50,8 +51,7 @@ body {
 }
 
 .app button:active {
-    background: #fa5;
-    border: 1px solid #fa5;
+    background: #FFE1A4;
 }
 
 .app div {
