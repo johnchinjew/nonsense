@@ -52,8 +52,8 @@ body {
 }
 
 .app button:active {
-    background: #fd7;
-    border: 1px solid #fd7;
+    background: #fa5;
+    border: 1px solid #fa5;
 }
 
 .app div {
