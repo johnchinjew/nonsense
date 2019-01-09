@@ -5873,8 +5873,6 @@ var author$project$Main$update = F2(
 					elm$core$Platform$Cmd$none);
 		}
 	});
-var author$project$Main$HideInstructions = {$: 11};
-var author$project$Main$ShowInstructions = {$: 10};
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$json$Json$Decode$succeed = _Json_succeed;
@@ -5890,12 +5888,10 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$p = _VirtualDom_node('p');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5905,6 +5901,29 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var author$project$Main$viewCopyright = function (model) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('copyright')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$p,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('© 2019 John Chin-Jew & Nonsense Party Game.')
+					]))
+			]));
+};
+var author$project$Main$HideInstructions = {$: 11};
+var author$project$Main$ShowInstructions = {$: 10};
+var elm$html$Html$button = _VirtualDom_node('button');
+var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 0, a: a};
 };
@@ -6046,7 +6065,6 @@ var author$project$Main$viewInstructions = function (model) {
 };
 var author$project$Main$GetNewRule = {$: 2};
 var elm$html$Html$h1 = _VirtualDom_node('h1');
-var elm$html$Html$p = _VirtualDom_node('p');
 var author$project$Main$viewRule = function (model) {
 	return (model.y > 0) ? A2(
 		elm$html$Html$div,
@@ -6341,7 +6359,8 @@ var author$project$Main$view = function (model) {
 						author$project$Main$viewInstructions(model),
 						author$project$Main$viewWord(model),
 						author$project$Main$viewRule(model),
-						author$project$Main$viewScore(model)
+						author$project$Main$viewScore(model),
+						author$project$Main$viewCopyright(model)
 					]))
 			]),
 		aK: 'Nonsense'

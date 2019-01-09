@@ -5,7 +5,7 @@
 Play it here: [nonsense.johnchinjew.com](https://nonsense.johnchinjew.com)
 
 ## How to play?
-- Game requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.
+- Nonsense requires 4 or more players and 1 phone. Make 2 teams and pick 1 clue giver from each team.
 - Together, clue givers draw a single shared word (tap the "New word" button) unknown to their teams. Each round teams will compete to guess the word. Clue givers may NEVER explicitly communicate the word. Also, clue givers may skip words until they agree on one.
 - Now, clue givers and their teams will take 45 second turns trying to figure out the word.
 - At the start of each turn, the current clue giver draws a new clue-giving rule (tap the "New rule" button) and announces the rule. Clue givers may skip 1 rule per turn.
